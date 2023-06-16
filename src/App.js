@@ -1,371 +1,107 @@
-//---------Day1 react----------------------
-//const App = ()=> {
+//----------TODAY TOPICS---------
+//react-router-dom
+//BrouserRouter, Switch(now its spells Routes), Link, Route, url params
 
-  //   //javascript
-  //   console.log('Hello from Component');
-  //   const  now=new Date();
-  //   const a=30;
-  //   const b=20;
-  //   console.log(now, a+b);
-  //   return (
-  //     <div>
-  //       <p>Hello World, it is {now.toString()}</p>
-  //       <p>
-  //         {a} plus {b} is {a+b}
-  //       </p>
-  //     </div>
-  //   );
-  // }
-  
-  // export default App;
-  // import React from 'react';
-  // function Hello(props){
-  //   // console.log(props);
-  //   return(
-  //     <div>
-  //       <p>Hello { props.name } , you are {props.age} years old.</p>
-  //     </div>
-  //   )
-  // }
-  
-  a
-  
-  // function App() {
-  //   return (
-  //     <div>
-  //       <h1>Greeting</h1>
-  //       <Hello name='Lakshan' age={3+5}/>
-  //       <Hello name='Nivin' age={5+1}/>
-  
-  //     </div>
-  //   )
-  // }
+//1.Without React Router
+import React, { useState } from 'react';
+import { Link,Route,BrowserRouter as Router, Routes, useParams } from 'react-router-dom';
 
-//----------Day -5 June 14th Evening CLASS---------
-//useState Hook
-
-// import React,{ useState } from 'react';
-
-// function App() {
-
-// const [counter,setCounter] = useState(0);
-
-// setTimeout(
-//   ()=> setCounter(counter + 1),1000
-// );
-//  console.log('rendering...', counter);
-
-//   return (
-//     <div>{counter}</div>
-//   )
-// }
-
-// export default App;
-// import React,{ useState } from 'react';
-
-// function App() {
-
-// const [counter,setCounter] = useState(0);
-
-// const handlePlusClick=()=>{
-//   setCounter (counter + 1);
-// }
-
-// const handleMinusClick=()=>{
-//   setCounter (counter - 1);
-// }
-
-// const handleZeroClick=()=>{
-//   setCounter (0);
-// }
-
-// return (
-//   <div>
-//     <div>{counter}</div>
-//     <button onClick={handlePlusClick}>Plus</button>
-//     <button onClick={handleMinusClick}>Minus</button>
-//     <button onClick={handleZeroClick}>Zero</button>
-//   </div>
-//   )
-// }
-// export default App;
-
-
-//--------------------
-import React,{ useState } from 'react';
-
-const Display = (props) =>{
-  return(
-    <div> { props.counter} </div>
-  )
+function Home(){
+    return(
+        <div>
+            <h2>User App</h2>
+        </div>
+    )
 }
-
-function Button(props){
-  return(
-    <button onClick={props.handleClick}>{props.text}</button>
-   )
+function Note({notes}){
+    const id=useParams().id;
+    const note=notes.find(n =>n.id === Number(id));
+    return(
+        <div>
+            <h2>{note.content}</h2>
+        </div>
+    )
+}
+function Notes({notes}){
+    return(
+        <div>
+            <h2>Notes </h2>
+            <ul>
+            {
+                notes.map(note =>
+                <li><Link to={`/notes/${note.id}`}>{note.content}</Link></li>)
+             }
+            </ul>
+        </div>
+    )
+}
+function Users(){
+    return(
+        <div>
+            <h2>Users Component</h2>
+        </div>
+    )
 }
 
 function App() {
 
-const [counter,setCounter] = useState(0);
+    // const [page,setPage] = useState('home');
+    // const content=()=>{
+    //     if(page== 'home'){
+    //     return <Home/>;
+    //     }else if (page== 'notes'){
+    //     return <Notes/>;
+    //     }else if  (page== 'users'){
+    //     return <Users/>;
+    //     }
+    // }
 
-const handlePlusClick=()=>setCounter (counter + 1);
-const handleMinusClick=()=>setCounter (counter - 1);
-const handleZeroClick=()=>setCounter (0);
+    // const toPage=(page)=>(event)=>{
+    //     event.preventDefault();
+    //     setPage(page);
+    // }
 
+    const notes=[
+        {
+         id:1,
+         content: 'JavaScript'    
+        },
+        {
+         id:2,
+         content: 'ReactJs'    
+        },
+        {
+         id:3,
+         content: 'NodeJs'    
+        }
+]
 
-return (
-  <div>
-    <Display counter ={counter}/>
-    <Button text='Plus'   handleClick={handlePlusClick}/>
-    <Button text='Minus'  handleClick={handleMinusClick}/>
-    <Button text='Zero'   handleClick={handleZeroClick}/>
-  </div>
-  )
+    const padding={
+        padding:10
+    };
+  return (
+       <Router>
+       <div>
+        <Link to='/'  style={{padding:10}} >Home</Link>
+        <Link to='/notes' style={padding}>Notes</Link>
+        <Link to='/users' style={padding}>Users</Link>
+
+            {/* before install react DOM
+            <a href='' style={{padding:10}} onClick={toPage('home')}>Home</a>
+            <a href='' style={padding} onClick={toPage('notes')}>Notes</a>
+            <a href='' style={padding} onClick={toPage('users')}>Users</a> */}
+        </div>
+      
+       <Routes>
+        <Route path='/' element={ <Home/>}/>
+        <Route path='/notes' element={ <Notes notes={notes}/>}/>
+        <Route path='/notes/:id' element={<Note notes={notes}/>}/>
+        <Route path='/users' element={ <Users/>}/>
+       </Routes>
+
+        {/* { content() } */}
+        </Router>
+  ) 
 }
+
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//----------Day -4 June 14th MORNING CLASS---------
-
-//Functional Component
-// import React from 'react'
-// function App() {
-//   return (
-//     <div>Good Day World!</div>
-//   )
-// }
-// export default App
-
-//Class Component
-// import { Component } from "react";
-
-// class App extends Component {
-
-//   render(){
-//     return <div>Good Day World!</div>
-//   }
-
-// }
-// export default App;
-
-//Passing Props in  Functional Component
-// import React from 'react';
-
-// function Hello(props){
-//   return(
-//   <div>Great Day {props.name} !</div>
-//  )
-// }
-// function App() {
-//   return (
-//     <div>
-//     <Hello name={ 'Hema' }/>
-//     </div>
-
-//   )
-// }
-// export default App;
-
-//Passing Props in Class component
-
-// import { Component } from "react";
-// class Hello extends Component {
-//   render(){
-//     const { name }=this.props;
-
-//     return(
-//       <div>Hello, { this.props.name } !</div>
-//     )
-//   }
-
-// }
-
-// class App extends Component {
-
-//   render(){
-//     return( <div>
-//       <Hello name = { 'Hema'} />
-//       </div>)
-//   }
-
-// }
-// export default App;
-
-
-//states in Component
-// import React,{ Component } from 'react';
-
-// export class App extends Component{
-//   componentDidMount(){
-//     console.log('component mounted');
-    
-//   }
-
-//   componentDidUpdate(){
-
-//   }
-
-//   componentWillUnmount(){
-
-//   }
-
-
-// render(){
-//       return( <div>Hello World!</div>)
-//     }
-  
-// }
-//   export default App;
-//-------------EXAMPLE OF Stateful Component------
-
-// import React, { Component } from "react";
-
-// export class App extends Component {
-
-//   constructor(props) {
-//     super(props);
-
-//     this.state={
-//       count: 0,
-//     }
-//   }
- 
-//   handleClick=() => {
-//     this.setState((prevState) =>({
-//       count: prevState.count + 1,
-//     }));
-//   }
-//   handle1Click=() => {
-//     this.setState((prevState) =>({
-//       count: prevState.count - 1,
-//     }));
-//   }
-//   handle2Click=() => {
-//     this.setState((prevState) =>({
-//       count: 0,
-//     }));;
-//   }
-
-
-
-//   render(){
-//     return(
-//     <div>
-
-//       <p>Count: { this.state.count } </p>
-//       <button onClick={ this.handleClick } >Plus</button>
-//       <button onClick={ this.handle1Click }>Minus</button>
-//       <button onClick={ this.handle2Click }>Zero</button>
-//     </div>
-//     )
-//   }
-
-// }
-// export default App;
-//--------
-// import React,{Component} from 'react';
-// import Hello from './Components/Hello';
-
-// export class App extends Component{
-//   render(){
-//     return(
-//       <div>
-//         <Hello />
-//       </div>
-//     )
-//   }
-// }
-
-
-// export default App
-//----------Day -3 June 13th EVENING CLASS---------
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-//june 13th react class-3
-// import React from "react";
-// function App(props) {
-//   const {notes} = props;
-//   console.log(notes);
-
-//   return (
-//     <div> 
-//       <h1>Notes</h1>
-//       <ul>
-//         {notes.map(note => <li key={note.id}>{note.content}</li>)}
-//       </ul>
-      
-//     </div>
-
-//   )
-// }
-
-// export default App;
-
-// import React from "react";
-// function Note({note}) {
-//   return(
-//   <li>{note.content}</li>
-//   )
-
-// }
-
-// function App( {notes} ) {
-//  console.log(notes);
-
-//   return (
-//     <div> 
-//       <h1>Notes</h1>
-//       <ul>
-//         {notes.map(note => <Note key={note.id} note={note}/>)}
-//       </ul>
-      
-//     </div>
-
-//   )
-// }
-
-// export default App;
