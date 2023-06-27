@@ -1,46 +1,80 @@
 //---------Day1 react----------------------
-//const App = ()=> {
+//1111111111111111111111111111111111111111//
 
-  //   //javascript
-  //   console.log('Hello from Component');
-  //   const  now=new Date();
-  //   const a=30;
-  //   const b=20;
-  //   console.log(now, a+b);
-  //   return (
-  //     <div>
-  //       <p>Hello World, it is {now.toString()}</p>
-  //       <p>
-  //         {a} plus {b} is {a+b}
-  //       </p>
-  //     </div>
-  //   );
-  // }
-  
-  // export default App;
-  // import React from 'react';
-  // function Hello(props){
-  //   // console.log(props);
-  //   return(
-  //     <div>
-  //       <p>Hello { props.name } , you are {props.age} years old.</p>
-  //     </div>
-  //   )
-  // }
-  
-  a
-  
-  // function App() {
-  //   return (
-  //     <div>
-  //       <h1>Greeting</h1>
-  //       <Hello name='Lakshan' age={3+5}/>
-  //       <Hello name='Nivin' age={5+1}/>
-  
-  //     </div>
-  //   )
-  // }
+// import React from 'react';
 
+// function App() {
+//   console.log("hello React");
+//   return (
+//     <div>Hello React</div>
+//   )
+// }
+
+// export default App;
+//22222222222222222222222222222222222222//
+// const App = ()=> {
+
+//     //javascript
+//     console.log("Display in Console Window")
+//     console.log('Hello from Component');
+//     const  now=new Date();
+//     const a=30;
+//     const b=20;
+//     console.log(now);
+//     console.log(a,b,(a+b));
+//     return (
+//       <div>
+//         <h1>Display in Webpage</h1>
+//         <p>Hello World, it is {now.toString()}</p>
+//         {/* now is a object,so we cannot use directly,convert as a String (now.toString) then use    */}
+//         <p>
+//           {a} plus {b} is {a+b}
+//         </p>
+//         <Contain />
+//       </div>
+//     );
+//   }
+  
+//   export default App;
+//-----------------------------------------------------------------------------------------------------
+//Hema--import Component file to App.js--external component file
+
+// import React from 'react';
+// import Contain from "./Contain";
+
+// function App() {
+//   return (
+//     <div>
+//       <Contain />
+//     </div>
+//   )
+// }
+
+// export default App;
+//---------------------------------------------------------------------------
+//33333333333333333333333333333333333
+//component defenition or declaration in same file
+  import React from 'react';
+  function Hello(props){
+    // console.log(props);
+    return(
+      <div>
+        <p>Hello { props.name } , you are {props.age} years old.</p>
+      </div>
+    )
+  }
+   function App() {
+    return (
+      <div>
+        <h1>Greeting</h1>
+        <Hello name='Lakshan' age={3+5}/>
+        <Hello name='Nivin' age={5+1}/>
+  
+      </div>
+    )
+  }
+  export default App;
+  //------------------DAY 1 finshed----------------------------
 //----------Day -5 June 14th Evening CLASS---------
 //useState Hook
 
@@ -92,39 +126,39 @@
 
 
 //--------------------
-import React,{ useState } from 'react';
+// import React,{ useState } from 'react';
 
-const Display = (props) =>{
-  return(
-    <div> { props.counter} </div>
-  )
-}
+// const Display = (props) =>{
+//   return(
+//     <div> { props.counter} </div>
+//   )
+// }
 
-function Button(props){
-  return(
-    <button onClick={props.handleClick}>{props.text}</button>
-   )
-}
+// function Button(props){
+//   return(
+//     <button onClick={props.handleClick}>{props.text}</button>
+//    )
+// }
 
-function App() {
+// function App() {
 
-const [counter,setCounter] = useState(0);
+// const [counter,setCounter] = useState(0);
 
-const handlePlusClick=()=>setCounter (counter + 1);
-const handleMinusClick=()=>setCounter (counter - 1);
-const handleZeroClick=()=>setCounter (0);
+// const handlePlusClick=()=>setCounter (counter + 1);
+// const handleMinusClick=()=>setCounter (counter - 1);
+// const handleZeroClick=()=>setCounter (0);
 
 
-return (
-  <div>
-    <Display counter ={counter}/>
-    <Button text='Plus'   handleClick={handlePlusClick}/>
-    <Button text='Minus'  handleClick={handleMinusClick}/>
-    <Button text='Zero'   handleClick={handleZeroClick}/>
-  </div>
-  )
-}
-export default App;
+// return (
+//   <div>
+//     <Display counter ={counter}/>
+//     <Button text='Plus'   handleClick={handlePlusClick}/>
+//     <Button text='Minus'  handleClick={handleMinusClick}/>
+//     <Button text='Zero'   handleClick={handleZeroClick}/>
+//   </div>
+//   )
+// }
+// export default App;
 
 
 

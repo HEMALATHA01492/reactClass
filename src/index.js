@@ -6,13 +6,33 @@ import App from './App';
 
 
 
-
-
-
-
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(< App />);
+
+
+//import another component in React like App;
+// import Contain from "./Contain";
+// ReactDOM.createRoot(document.getElementById('root')).render(< Contain />);
+//---------------------------------------
+
+//using JSX
+// const myElement = <h1>I Love JSX!</h1>;
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(myElement);
+//--------------------------------------------
+
+//Without using JSX-JavaScript XML.
+//XML stands for eXtensible Markup Language.
+
+// const myElement = React.createElement('h1', {}, 'I do not use JSX!');
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(myElement);
+
+
+
+
+
+
 
 
 
