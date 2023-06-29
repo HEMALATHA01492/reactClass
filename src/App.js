@@ -1,29 +1,105 @@
+// 28 JUNE-Evening
+import React from 'react';
+import {createStore} from 'redux';
+
+//define the reducer
+const noteReducer=(state=[],action) =>{
+  if (action.type === 'NEW_NOTE'){
+    state.push(action.payload);
+    return state;
+  }
+  return state;
+
+}
+
+const store=createStore(noteReducer);
+store.dispatch({
+  type:'NEW_NOTE',
+  payload:{
+    content:'the app state ia in redux store',
+    important:true,
+    id:1
+  }
+})
+store.dispatch({
+  type:'NEW_NOTE',
+  payload:{
+    content:'state changes are made with actions',
+    important:false,
+    id:2
+  }
+})
+function App() {
+  return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        {
+          store.getState().map(note =>
+            <li key={note.id}>
+              {note.content} <strong>
+                {note.important ?'important' : ''}
+              </strong>
+
+            </li>)
+        }
+      </ul>
+    </div>
+  )
+}
+
+export default App
+
+
+// 28 JUNE-Morning
+// import React from 'react'
+// import { useDispatch, useSelector } from 'react-redux';
+
+// const App =()=>{
+//   const dispatch=useDispatch();
+//   const counter=useSelector(state => state);
+//   return(
+//     <div>
+//       <div>
+//         {counter}
+//       </div>
+//       <button onClick={ e => dispatch ({ type: 'INCREMENT'})}>Plus</button>
+//       <button onClick={ e => dispatch ({ type: 'DECREMENT'})}>Minus</button>
+//       <button onClick={ e => dispatch ({ type: 'ZERO'})}>Reset</button>
+
+//     </div>
+//   )
+// }
+
+// export default App;
+
+
 //---------Day3 react----------------------
 //1.
 
-import React from "react";
-function Note({note}) {
-  return(
-  <li>{note.content}</li>
-  )
+// import React from "react";
+// function Note({note}) {
+//   return(
+//   <li>{note.content}</li>
+//   )
 
-}
+// }
 
-function App( {notes} ) {
- console.log(notes);
+// function App( {notes} ) {
+//  console.log(notes);
 
-  return (
-    <div> 
-      <h1>Notes</h1>
-      <ul>
-        {notes.map(note => <Note key={note.id} note={note}/>)}
-      </ul>
+//   return (
+//     <div> 
+//       <h1>Notes</h1>
+//       <ul>
+//         {notes.map(note => <Note key={note.id} note={note}/>)}
+//       </ul>
       
-    </div>
+//     </div>
 
-  )
-}
-export default App;
+//   )
+// }
+// export default App;
 
 
 
