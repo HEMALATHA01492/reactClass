@@ -7,6 +7,7 @@ import App from './App';
 const notes =[
  { id:1,
   content: "working with lists",
+  
   important: true
 },
 { id:2,
