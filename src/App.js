@@ -1,29 +1,161 @@
+import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+export default function 
+() {
+  return (
+    <div>
+      rating
+      
+    </div>
+  )
+}
+
+
+//task2 pending
+// import React from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { createStore } from 'redux';
+
+// // define the reducer
+// const noteReducer = (state = [], action) => {
+//     if (action.type === 'NEW_NOTE') {
+//         state.push(action.payload);
+//         return state;
+//     }
+//     return state;
+// }
+
+// // create a store
+// const store = createStore(noteReducer);
+
+// // dispatch actions
+// store.dispatch({
+//     type: 'NEW_NOTE',
+//     payload: {
+//         content: 'But it works in my machine...',
+//         votes:0,
+//         important: true,
+//         id: 1
+//     }
+// });
+
+// store.dispatch({
+//     type: 'NEW_NOTE',
+//     payload: {
+//         content: 'If it hurts, do it more often',
+//         votes:0,
+//         important: false,
+//         id: 2
+//     }
+// });
+
+
+
+// store.dispatch({
+//   type: 'NEW_NOTE',
+//   payload: {
+//       content: 'Any fool can write code that a commputer can understand',
+//       votes:0,
+//       important: false,
+//       id: 3
+//   }
+// });
+
+// store.dispatch({
+//   type: 'NEW_NOTE',
+//   payload: {
+//       content: 'The first 90 % of the code accounts for the',
+//       votes:0,
+//       important: false,
+//       id: 4
+//   }
+// });
+// store.dispatch({
+//   type: 'NEW_NOTE',
+//   payload: {
+//       content: 'Adding manpower to a late software project makes later',
+//       votes:0,
+//       important: false,
+//       id: 5
+//   }
+// });
+ 
+
+// const App = () => {
+//   const dispatch = useDispatch();
+//   const counter = useSelector(state => state);
+
+//     return (
+//         <div>
+           
+//                 {
+//                     store.getState().map(note =>
+//                         <div key={note.id}>
+//                           <p>{note.content}</p> 
+//                           <p>has {note.votes} <button onClick={()=>updateVote(item.id)}>Vote</button></p>
+//                         </div>)
+//                 }
+            
+//         </div>
+//     )
+// }
+// export default App;
+
+
+
+//task1---
+// import React from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+
+// const App = () => {
+  
+//   const dispatch = useDispatch();
+//   const counter = useSelector(state => state);
+ 
+//     return (
+//         <div>
+            
+
+//             <button onClick={e => dispatch({ type: 'GOOD' })}>good</button>
+//             <button onClick={e => dispatch({ type: 'OK' })}>ok</button>
+//             <button onClick={e => dispatch({ type: 'BAD' })}>bad</button>
+//             <button onClick={e => dispatch({ type: 'RESET' })}>reset</button>
+
+//             <div>good: {counter.good}</div>
+//             <div>ok: {counter.ok}</div>
+//             <div>bad: {counter.bad}</div>
+
+//         </div>
+//     )
+// }
+// export default App;
+
 //---------Day3 react----------------------
 //1.
 
-import React from "react";
-function Note({note}) {
-  return(
-  <li>{note.content}</li>
-  )
+// import React from "react";
+// function Note({note}) {
+//   return(
+//   <li>{note.content}</li>
+//   )
 
-}
+// }
 
-function App( {notes} ) {
- console.log(notes);
+// function App( {notes} ) {
+//  console.log(notes);
 
-  return (
-    <div> 
-      <h1>Notes</h1>
-      <ul>
-        {notes.map(note => <Note key={note.id} note={note}/>)}
-      </ul>
+//   return (
+//     <div> 
+//       <h1>Notes</h1>
+//       <ul>
+//         {notes.map(note => <Note key={note.id} note={note}/>)}
+//       </ul>
       
-    </div>
+//     </div>
 
-  )
-}
-export default App;
+//   )
+// }
+// export default App;
 
 
 
